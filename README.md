@@ -43,6 +43,7 @@ $recipe->component('default', function (\Soy\DoctrineMigrations\MigrateTask $mig
     $migrateTask
         ->setBinary('./bin/console')
         ->setCommandNamespace('doctrine:migrations:')
+        ->addArgument('-e dev')
         ->setVerbose(true)
         ->run();
 });
