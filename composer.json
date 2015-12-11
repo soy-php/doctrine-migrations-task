@@ -2,6 +2,7 @@
   "name": "soy-php/doctrine-migrations-task",
   "description": "Doctrine Migrations task for Soy",
   "license": "MIT",
+  "type": "soy-task",
   "authors": [
     {
       "name": "Rick Kuipers",
