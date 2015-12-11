@@ -1,0 +1,25 @@
+{
+  "name": "soy-php/doctrine-migrations-task",
+  "description": "Doctrine Migrations task for Soy",
+  "license": "MIT",
+  "type": "soy-task",
+  "authors": [
+    {
+      "name": "Rick Kuipers",
+      "email": "io@rskuipers.com"
+    }
+  ],
+  "require": {
+    "soy-php/soy": "0.1.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Soy\\DoctrineMigrations\\": "src/Soy/DoctrineMigrations/"
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-develop": "0.1.x-dev"
+    }
+  }
+}

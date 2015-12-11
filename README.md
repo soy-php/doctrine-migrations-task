@@ -12,7 +12,8 @@ Include `soy-php/doctrine-migrations-task` in your project with composer:
 $ composer require soy-php/doctrine-migrations-task
 ```
 
-Then in your recipe you can use the task as follows:
+### Standalone
+In your recipe you can use the task as follows:
 ```php
 <?php
 
@@ -20,10 +21,29 @@ $recipe = new \Soy\Recipe();
 
 $recipe->component('default', function (\Soy\DoctrineMigrations\MigrateTask $migrateTask) {
     $migrateTask
-        ->setBinary('../test/vendor/bin/doctrine-migrations')
+        ->setBinary('./vendor/bin/doctrine-migrations')
         ->setCommandNamespace('migrations:')
-        ->setConfiguration('../test/migrations.yml')
-        ->setDbConfiguration('../test/db.php')
+        ->setConfiguration('migrations.yml')
+        ->setDbConfiguration('db.php')
+        ->setVerbose(true)
+        ->run();
+});
+
+return $recipe;
+```
+
+### Symfony
+When using Doctrine in combination with Symfony, you can use the following setup:
+```php
+<?php
+
+$recipe = new \Soy\Recipe();
+
+$recipe->component('default', function (\Soy\DoctrineMigrations\MigrateTask $migrateTask) {
+    $migrateTask
+        ->setBinary('./bin/console')
+        ->setCommandNamespace('doctrine:migrations:')
+        ->addArgument('-e dev')
         ->setVerbose(true)
         ->run();
 });
